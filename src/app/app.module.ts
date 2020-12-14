@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PayslipComponent } from './payslip/payslip.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PayslipComponent
   ],
   imports: [
     BrowserModule,
