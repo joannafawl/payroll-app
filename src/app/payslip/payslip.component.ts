@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
+// import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { User } from '../user';
 import { Observable } from 'rxjs';
@@ -11,16 +11,16 @@ import { Observable } from 'rxjs';
 })
 export class PayslipComponent implements OnInit {
 
-  user: User;
+  @Input() user: User
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {
     // get() {
     //   // const getOptions = {
     //   //   params: { id }
     //   // };
-      this.user = this.http.get<User>('127.0.0.1:4201');
+      // this.user = this.http.get<User>('127.0.0.1:4201');
   }
 
 }

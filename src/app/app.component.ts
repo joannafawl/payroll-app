@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Payroll App';
+  currentUser = { id: 1, name: "Joanna", salary: 30000 }
 }
