@@ -1,5 +1,8 @@
 <h3 data-testid="employeeName">{{ user.name }}</h3>
 <ul>
-    <li data-testid="grossPayYear" >Total gross pay for current tax year: £{{ user.salary }}</li>
+    <li data-testid="grossPayYear">Total gross pay for current tax year: £{{ user.salary }}</li>
     <li data-testid="grossPayMonth">Total gross pay for month: £{{ calculateMonthlyGrossPay() }}</li>
+    <li data-testid="afterTax">Month's wage after tax: £{{ monthlyPayAfterTax }}</li>
+    <li data-testid="pension">Monthly Pension Contribution (6%): £{{ calculatePensionContribution() }}</li>
+    <li data-testid="nationalInsurance">National Insurance contribution: £{{ calculateNationalInsuranceContribution() }}</li>
 </ul>
