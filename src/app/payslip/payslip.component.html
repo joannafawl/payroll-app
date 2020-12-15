@@ -1,3 +1,5 @@
-<span data-testid="grossPayYear" >Total gross pay for current tax year: £{{ user.salary }}</span>
-<br>
-<span data-testid="grossPayMonth">Total gross pay for month: </span>
+<h3 data-testid="employeeName">{{ user.name }}</h3>
+<ul>
+    <li data-testid="grossPayYear" >Total gross pay for current tax year: £{{ user.salary }}</li>
+    <li data-testid="grossPayMonth">Total gross pay for month: £{{ calculateMonthlyGrossPay() }}</li>
+</ul>

@@ -23,6 +23,10 @@ export class PayslipComponent implements OnInit {
       // this.user = this.http.get<User>('127.0.0.1:4201');
   }
 
+  calculateMonthlyGrossPay(): number {
+    return this.user.salary / 12;
+  }
+
 }
 
 
