@@ -3,12 +3,16 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { PayslipComponent } from './payslip/payslip.component';
+import { render, screen, fireEvent } from '@testing-library/angular'
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule
       ],
       declarations: [
         AppComponent,
@@ -29,10 +33,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Payroll App');
   });
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   expect(compiled.querySelector('span').textContent).toContain('payroll-app app is running!');
-  // });
+  // it('should retrieve user based on id and render payslip', async () => {
+  //   await render(AppComponent, {
+  //     componentProperties: { id: 2 }
+  //   })
+  //   expect(screen.getByText("Duncan"));
+  // })
 });

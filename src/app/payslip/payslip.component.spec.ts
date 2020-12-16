@@ -1,4 +1,3 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { render, screen, fireEvent } from '@testing-library/angular'
 
 import { PayslipComponent } from './payslip.component';

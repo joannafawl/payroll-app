@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from './user';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +9,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @Input() id: number;
+
   title = 'Payroll App';
-  currentUser = { id: 1, name: "Joanna", salary: 30000 }
+  currentUser: User;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    
+  }
 }
