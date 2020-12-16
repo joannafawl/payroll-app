@@ -1,5 +1,5 @@
 const express = require('express');
-import { payslip } from './payslip'; 
+// import { payslip } from './payslip'; 
 
 const app = express();
 // Allow any method from any host and log requests
@@ -15,9 +15,23 @@ const app = express();
 //     }
 // });
 
+const users = [
+    {id: "1", name: "Joanna", salary: "30000"},
+    {id: "2", name: "Duncan", salary: "300000"},
+    {id: "3", name: "Azlina", salary: "37000"},
+    {id: "4", name: "Richard", salary: "22500"}
+]
+
 // Handle POST requests that come in formatted as JSON
 app.use(express.json());
-app.use('/', payslip)
+// app.use('/', payslip)
+
+
+app.get('/:id', (req: any, res: any) => {
+    const id = req.params.id;
+    const user = users.find(user => user.id === id);
+    res.send(user);
+} );
 
 // start our server on port 4201
 app.listen(4201, '127.0.0.1', function() {
