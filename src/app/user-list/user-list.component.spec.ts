@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { render, screen, fireEvent } from '@testing-library/angular'
+import { render, screen, fireEvent } from '@testing-library/angular';
 
 import { UserListComponent } from './user-list.component';
 

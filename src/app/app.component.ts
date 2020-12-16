@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @Input() id: number;
+  // @Input() id: number;
 
   title = 'Payroll App';
-  currentUser: User;
+  // currentUser: User;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit(): void {
     
