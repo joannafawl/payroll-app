@@ -3,7 +3,8 @@ import { UserService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { PayslipComponent } from './payslip.component';
-import { Observable, of, from } from 'rxjs';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs'
 
 describe('PayslipComponent', () => {
   
@@ -15,7 +16,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 40000 };
+              return of({ id: 1, name: "Joanna", salary: 40000 });
             }
           }
         },
@@ -44,7 +45,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 30000 };
+              return of({ id: 1, name: "Joanna", salary: 30000 });
             }
           }
         },
@@ -73,7 +74,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 30000 };
+              return of({ id: 1, name: "Joanna", salary: 30000 });
             }
           }
         },
@@ -102,7 +103,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 30000 };
+              return of({ id: 1, name: "Joanna", salary: 30000 });
             }
           }
         },
@@ -131,7 +132,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 42000 };
+              return of({ id: 1, name: "Joanna", salary: 42000 });
             }
           }
         },
@@ -160,7 +161,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 30000 };
+              return of({ id: 1, name: "Joanna", salary: 30000 });
             }
           }
         },
@@ -189,7 +190,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 8000 };
+              return of({ id: 1, name: "Joanna", salary: 8000 });
             }
           }
         },
@@ -218,7 +219,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 22500 };
+              return of({ id: 1, name: "Joanna", salary: 22500 });
             }
           }
         },
@@ -247,7 +248,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 22500 };
+              return of({ id: 1, name: "Joanna", salary: 22500 });
             }
           }
         },
@@ -276,7 +277,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 200000 };
+              return of({ id: 1, name: "Joanna", salary: 200000 });
             }
           }
         },
@@ -305,7 +306,7 @@ describe('PayslipComponent', () => {
           provide: UserService,
           useValue: {
             getUser(id: 1) {
-              return { id: 1, name: "Joanna", salary: 22500 };
+              return of({ id: 1, name: "Joanna", salary: 22500 });
             }
           }
         },

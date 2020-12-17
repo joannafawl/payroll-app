@@ -17,7 +17,7 @@ export class PayslipComponent implements OnInit {
 
   ngOnInit() {
     const id = this.getId();
-    this.user = this._userService.getUser(id);
+    this._userService.getUser(id).subscribe(data => this.user = data);
   }
 
   getId() {
