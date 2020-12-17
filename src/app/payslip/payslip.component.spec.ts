@@ -327,4 +327,33 @@ describe('PayslipComponent', () => {
     const text = screen.getByTestId('nationalInsurance');
     expect(text.textContent).toContain("£135");
   })
+
+  it('should display the tax period', async () => {
+    await render(PayslipComponent, {
+      componentProviders: [
+        {
+          provide: UserService,
+          useValue: {
+            getUser(id: 1) {
+              return of({ id: 1, name: "Joanna", salary: 22500 });
+            }
+          }
+        },
+        { 
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get() {
+                  return 1;
+                }
+              }
+            }
+          }
+        }
+      ] 
+    })
+    const text = screen.getByTestId('taxPeriod');
+    expect(text.textContent).toContain("December 1st - December 31st");
+  })
 });

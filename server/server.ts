@@ -26,17 +26,23 @@ const users = [
 app.use(express.json());
 // app.use('/', payslip)
 
-// GET by id
-app.get('/:id', (req: any, res: any) => {
-    const id = req.params.id;
-    const user = users.find(user => user.id == id);
-    res.send(user);
-} );
-
-// GET all users
-app.get('/', (req: any, res: any) => {
-    res.send(users);
+const db = require("./models");
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Drop and re-sync db.");
 });
+
+// GET by id
+// app.get('/:id', (req: any, res: any) => {
+//     const id = req.params.id;
+//     const user = users.find(user => user.id == id);
+//     res.send(user);
+// } );
+
+// // GET all users
+// app.get('/', (req: any, res: any) => {
+//     res.send(users);
+
+require("./routes/user.routes")(app);
 
 // start our server on port 4200
 app.listen(4200, '127.0.0.1', function() {
