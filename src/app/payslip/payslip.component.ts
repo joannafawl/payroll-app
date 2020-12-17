@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-// import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../user';
-import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-payslip',
@@ -11,17 +11,21 @@ import { Observable } from 'rxjs';
 })
 export class PayslipComponent implements OnInit {
 
-  @Input() user: User
-  monthlyPayAfterTax: number;
+  user: User
 
-  constructor() { }
+  constructor(private _userService: UserService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.monthlyPayAfterTax = this.calculateMonthlyPayAfterTax();
+  ngOnInit() {
+    const id = this.getId();
+    this.user = this._userService.getUser(id);
+  }
+
+  getId() {
+    return parseInt(this.route.snapshot.paramMap.get('id'));
   }
 
   calculateMonthlyGrossPay(): number {
-    return this.user.salary / 12;
+    return Math.round(this.user.salary / 12 * 100) / 100;
   }
 
   calculateMonthlyPayAfterTax(): number {
@@ -29,7 +33,7 @@ export class PayslipComponent implements OnInit {
     let lowerRateTaxPay = 0;
     let upperRateTaxPay = 0;
     if (taxFreePayDeducted < 0) {
-      return (Math.round((this.user.salary / 12) * 100) / 100);
+      return Math.round((this.user.salary / 12) * 100) / 100;
     }
     else if (taxFreePayDeducted < 15000) {
       lowerRateTaxPay = taxFreePayDeducted * 0.2;
@@ -42,7 +46,8 @@ export class PayslipComponent implements OnInit {
   }
 
   calculatePensionContribution(): number {
-    return Math.round(this.monthlyPayAfterTax * 0.06 * 100) / 100;
+    let monthlyPayAfterTax = this.calculateMonthlyPayAfterTax();
+    return Math.round(monthlyPayAfterTax * 0.06 * 100) / 100;
   }
 
   calculateNationalInsuranceContribution(): number {

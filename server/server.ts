@@ -3,7 +3,7 @@ const express = require('express');
 
 const app = express();
 // Allow any method from any host and log requests
-app.use((req, res, next) => {
+app.use((req: any, res: any, next: any) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE');
@@ -27,14 +27,14 @@ app.use(express.json());
 // app.use('/', payslip)
 
 // GET by id
-app.get('/:id', (req, res) => {
+app.get('/:id', (req: any, res: any) => {
     const id = req.params.id;
-    const user = users.find(user => user.id === id);
+    const user = users.find(user => user.id == id);
     res.send(user);
 } );
 
 // GET all users
-app.get('/', (req, res) => {
+app.get('/', (req: any, res: any) => {
     res.send(users);
 });
 

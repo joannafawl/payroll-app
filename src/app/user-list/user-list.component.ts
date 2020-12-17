@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -13,14 +11,10 @@ export class UserListComponent implements OnInit {
 
   users: User[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
-    this.getUsers().subscribe(data => this.users = data);
-  }
-
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>("http://localhost:4200");
+    this._userService.getUsers().subscribe(data => this.users = data);
   }
 
 }
