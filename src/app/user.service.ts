@@ -15,7 +15,7 @@ export class UserService {
     // let users: User[];
     // usersObservable.subscribe(data => users = data);
     // return users;
-    return this.http.get<User[]>("http://localhost:4200");
+    return this.http.get<User[]>("http://localhost:4200/api/users");
   }
 
   getUser(id: number): Observable<User> {
@@ -23,6 +23,6 @@ export class UserService {
     // let user: User;
     // userObservable.subscribe(data => user = data);
     // return user;
-    return this.http.get<User>(`http://localhost:4200/${id}`);
+    return this.http.get<User>(`http://localhost:4200/api/users/${id}`);
   }
 }
