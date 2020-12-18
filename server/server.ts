@@ -3,7 +3,7 @@ const express = require('express');
 
 const app = express();
 // Allow any method from any host and log requests
-app.use((req: any, res: any, next: any) => {
+app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE');
@@ -32,15 +32,16 @@ db.sequelize.sync({ force: true }).then(() => {
 });
 
 // GET by id
-// app.get('/:id', (req: any, res: any) => {
-//     const id = req.params.id;
-//     const user = users.find(user => user.id == id);
-//     res.send(user);
-// } );
+app.get('/:id', (req, res) => {
+    const id = req.params.id;
+    const user = users.find(user => user.id == id);
+    res.send(user);
+} );
 
-// // GET all users
-// app.get('/', (req: any, res: any) => {
-//     res.send(users);
+// GET all users
+app.get('/', (req, res) => {
+    res.send(users);
+});
 
 require("./routes/user.routes")(app);
 
